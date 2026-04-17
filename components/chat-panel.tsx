@@ -41,14 +41,40 @@ export function ChatPanel({
 
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const prevStatusRef = useRef(status);
+  const hasMountedRef = useRef(false);
 
-  // 消息列表变化时自动滚动到底部
+  const scrollToBottom = useCallback(
+    (behavior: ScrollBehavior = "smooth") => {
+      const el = scrollRef.current;
+      if (el) {
+        el.scrollTo({ top: el.scrollHeight, behavior });
+      }
+    },
+    [],
+  );
+
+  // 初次挂载时立即滚到底部（进入对话）
   useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      requestAnimationFrame(() => scrollToBottom("instant"));
     }
-  }, [messages]);
+  }, [scrollToBottom]);
+
+  // 生成完成后（status 从 streaming/submitted 变为 ready）滚到底部
+  useEffect(() => {
+    const wasLoading =
+      prevStatusRef.current === "streaming" ||
+      prevStatusRef.current === "submitted";
+    const isReady = status === "ready";
+
+    if (wasLoading && isReady) {
+      scrollToBottom("smooth");
+    }
+
+    prevStatusRef.current = status;
+  }, [status, scrollToBottom]);
 
   // 消息变化时通知父组件持久化（写入 localStorage）
   useEffect(() => {
@@ -70,8 +96,9 @@ export function ChatPanel({
       if (!msg || isLoading) return;
       sendMessage({ text: msg });
       setInput("");
+      requestAnimationFrame(() => scrollToBottom("smooth"));
     },
-    [input, isLoading, sendMessage],
+    [input, isLoading, sendMessage, scrollToBottom],
   );
 
   return (
