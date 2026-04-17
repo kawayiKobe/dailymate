@@ -1,0 +1,62 @@
+{
+  "name": "dailymate",
+  "version": "0.1.0",
+  "description": "AI-powered personal super assistant — daily briefings, weather, travel planning, holidays",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kawayiKobe/dailymate.git"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "chat": "tsx src/cli.ts",
+    "demo:basic": "tsx demos/basic-chat.ts",
+    "demo:buffer": "tsx demos/memory-buffer.ts",
+    "demo:summary": "tsx demos/memory-summary.ts",
+    "demo:session": "tsx demos/memory-session.ts",
+    "demo:window": "tsx demos/memory-window.ts",
+    "demo:token": "tsx demos/memory-token.ts",
+    "demo:embeddings": "tsx demos/demo-embeddings.ts",
+    "demo:vectorstore": "tsx demos/demo-vectorstore.ts",
+    "demo:weather": "tsx demos/demo-weather-tool.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@ai-sdk/langchain": "^2.0.167",
+    "@ai-sdk/react": "^3.0.163",
+    "@langchain/classic": "^1.0.31",
+    "@langchain/core": "^1.1.40",
+    "@langchain/langgraph": "^1.2.8",
+    "@langchain/openai": "^1.4.4",
+    "@tailwindcss/postcss": "^4.2.2",
+    "ai": "^6.0.161",
+    "cheerio": "^1.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.4.1",
+    "langchain": "^1.3.3",
+    "lucide-react": "^1.8.0",
+    "next": "^16.2.3",
+    "postcss": "^8.5.9",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "rss-parser": "^3.13.0",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
