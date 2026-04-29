@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { PanelLeftClose, PanelLeft } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Sidebar } from "@/components/sidebar";
 import { ChatPanel } from "@/components/chat-panel";
 import {
@@ -63,8 +64,14 @@ export default function Home() {
     [activeId, refreshList],
   );
 
-  /** 新建会话：创建 → 刷新列表 → 切换到新会话 */
+  /** 新建会话：如果已有空会话则复用，否则创建新会话 */
   const handleNewChat = useCallback(() => {
+    const list = getConversations();
+    const emptyConv = list.find((c) => getMessages(c.id).length === 0);
+    if (emptyConv) {
+      setActiveId(emptyConv.id);
+      return;
+    }
     const conv = createConversation();
     refreshList();
     setActiveId(conv.id);
@@ -120,10 +127,10 @@ export default function Home() {
       {/* ── 右侧主区域 ── */}
       <div className="relative z-10 flex flex-1 flex-col overflow-hidden">
         {/* 顶部导航栏：侧栏开关 + 品牌标识 */}
-        <header className="flex shrink-0 items-center justify-between border-b border-[rgba(0,229,255,0.1)] bg-[rgba(5,10,18,0.8)] px-4 py-3 backdrop-blur-md">
+        <header className="flex shrink-0 items-center justify-between border-b border-[rgba(var(--neon-cyan-rgb),0.1)] bg-[var(--th-header-bg)] px-4 py-3 backdrop-blur-md">
           <button
             onClick={() => setSidebarOpen((v) => !v)}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-all hover:bg-[rgba(0,229,255,0.08)] hover:text-[var(--color-neon-cyan)] hover:shadow-[0_0_12px_rgba(0,229,255,0.15)]"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-all hover:bg-[rgba(var(--neon-cyan-rgb),0.08)] hover:text-[var(--color-neon-cyan)] hover:shadow-[0_0_12px_rgba(var(--neon-cyan-rgb),0.15)]"
             title={sidebarOpen ? "收起侧栏" : "展开侧栏"}
           >
             {sidebarOpen ? (
@@ -132,9 +139,12 @@ export default function Home() {
               <PanelLeft className="h-4 w-4" />
             )}
           </button>
-          <span className="font-[var(--font-mono)] text-[10px] tracking-[0.15em] uppercase text-[rgba(0,229,255,0.4)]">
-            Powered by LangGraph
-          </span>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <span className="font-[var(--font-mono)] text-[10px] tracking-[0.15em] uppercase text-[rgba(var(--neon-cyan-rgb),0.4)]">
+              Powered by LangGraph
+            </span>
+          </div>
         </header>
 
         {/* 聊天面板：key={activeId} 确保切换会话时整个组件重新挂载 */}

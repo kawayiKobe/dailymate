@@ -55,18 +55,18 @@ export function WeatherCard({ output }: { output: unknown }) {
   const uv = uvLevel(data.uvIndex);
 
   return (
-    <div className="my-3 overflow-hidden rounded-xl border border-[rgba(41,121,255,0.2)] bg-gradient-to-br from-[rgba(41,121,255,0.06)] to-[rgba(0,229,255,0.03)] shadow-[0_0_20px_rgba(41,121,255,0.06)]">
+    <div className="my-3 overflow-hidden rounded-xl border border-[rgba(var(--neon-blue-rgb),0.2)] bg-gradient-to-br from-[rgba(var(--neon-blue-rgb),0.06)] to-[rgba(var(--neon-cyan-rgb),0.03)] shadow-[0_0_20px_rgba(var(--neon-blue-rgb),0.06)]">
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <div>
           <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-wider">{data.city}</h3>
           <p className="text-xs text-muted-foreground">{data.weather}</p>
         </div>
-        <CloudSun className="h-10 w-10 text-[var(--color-neon-blue)] opacity-60" style={{ filter: "drop-shadow(0 0 8px rgba(41,121,255,0.4))" }} />
+        <CloudSun className="h-10 w-10 text-[var(--color-neon-blue)] opacity-60" style={{ filter: "drop-shadow(0 0 8px rgba(var(--neon-blue-rgb),0.4))" }} />
       </div>
 
       <div className="px-4 pb-2">
         {/* 只显示摄氏温度部分（"25°C / 77°F" → "25°C"） */}
-        <span className="text-4xl font-bold tracking-tighter glow-text" style={{ textShadow: "0 0 15px rgba(41,121,255,0.4), 0 0 30px rgba(41,121,255,0.15)" }}>
+        <span className="text-4xl font-bold tracking-tighter glow-text" style={{ textShadow: "0 0 15px rgba(var(--neon-blue-rgb),0.4), 0 0 30px rgba(var(--neon-blue-rgb),0.15)" }}>
           {data.temperature.split("/")[0]?.trim()}
         </span>
         <span className="ml-2 text-sm text-muted-foreground">
@@ -75,7 +75,7 @@ export function WeatherCard({ output }: { output: unknown }) {
       </div>
 
       {/* 底部 4 列指标 */}
-      <div className="grid grid-cols-4 gap-px border-t border-[rgba(41,121,255,0.12)] bg-[rgba(41,121,255,0.06)]">
+      <div className="grid grid-cols-4 gap-px border-t border-[rgba(var(--neon-blue-rgb),0.12)] bg-[rgba(var(--neon-blue-rgb),0.06)]">
         <Stat icon={Droplets} label="湿度" value={data.humidity} />
         <Stat
           icon={Wind}
@@ -111,7 +111,7 @@ function Stat({
   valueColor?: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-1 bg-[rgba(10,22,40,0.6)] px-2 py-3 backdrop-blur-sm">
+    <div className="flex flex-col items-center gap-1 bg-[var(--th-card-inner-bg)] px-2 py-3 backdrop-blur-sm">
       <Icon className="h-3.5 w-3.5 text-[var(--color-neon-blue)] opacity-60" />
       <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{label}</span>
       <span className={`text-xs font-semibold ${valueColor ?? ""}`}>

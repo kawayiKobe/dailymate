@@ -64,20 +64,20 @@ export function HolidayCard({ output }: { output: unknown }) {
   if (!data || data.holidays.length === 0) return null;
 
   return (
-    <div className="my-3 overflow-hidden rounded-xl border border-[rgba(176,64,255,0.15)] bg-[rgba(176,64,255,0.03)] shadow-[0_0_20px_rgba(176,64,255,0.04)]">
+    <div className="my-3 overflow-hidden rounded-xl border border-[rgba(var(--neon-purple-rgb),0.15)] bg-[rgba(var(--neon-purple-rgb),0.03)] shadow-[0_0_20px_rgba(var(--neon-purple-rgb),0.04)]">
       {/* 头部：标题 + 假期总数 */}
-      <div className="flex items-center gap-2 border-b border-[rgba(176,64,255,0.1)] px-4 py-3">
-        <CalendarDays className="h-4 w-4 text-[var(--color-neon-purple)]" style={{ filter: "drop-shadow(0 0 6px rgba(176,64,255,0.4))" }} />
+      <div className="flex items-center gap-2 border-b border-[rgba(var(--neon-purple-rgb),0.1)] px-4 py-3">
+        <CalendarDays className="h-4 w-4 text-[var(--color-neon-purple)]" style={{ filter: "drop-shadow(0 0 6px rgba(var(--neon-purple-rgb),0.4))" }} />
         <span className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-wider">
           {data.country} {data.year} 年假期
         </span>
-        <span className="ml-auto rounded-full border border-[rgba(176,64,255,0.2)] bg-[rgba(176,64,255,0.08)] px-2 py-0.5 text-[10px] font-medium text-[var(--color-neon-purple)]">
+        <span className="ml-auto rounded-full border border-[rgba(var(--neon-purple-rgb),0.2)] bg-[rgba(var(--neon-purple-rgb),0.08)] px-2 py-0.5 text-[10px] font-medium text-[var(--color-neon-purple)]">
           {data.holidays.length} 个假期
         </span>
       </div>
 
       {/* 假期列表 */}
-      <div className="divide-y divide-[rgba(176,64,255,0.06)]">
+      <div className="divide-y divide-[rgba(var(--neon-purple-rgb),0.06)]">
         {data.holidays.map((h, i) => {
           const upcoming = isUpcoming(h.date);
           return (
@@ -85,7 +85,7 @@ export function HolidayCard({ output }: { output: unknown }) {
               key={i}
               className={`flex items-center gap-3 px-4 py-2.5 transition-colors ${
                 upcoming
-                  ? "bg-[rgba(176,64,255,0.03)]"
+                  ? "bg-[rgba(var(--neon-purple-rgb),0.03)]"
                   : "opacity-50"
               }`}
             >
@@ -98,7 +98,7 @@ export function HolidayCard({ output }: { output: unknown }) {
                   {h.date}
                 </span>
                 {upcoming && (
-                  <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-[rgba(0,229,255,0.2)] bg-[rgba(0,229,255,0.06)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-neon-cyan)]">
+                  <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-[rgba(var(--neon-cyan-rgb),0.2)] bg-[rgba(var(--neon-cyan-rgb),0.06)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-neon-cyan)]">
                     <PartyPopper className="h-2.5 w-2.5" />
                     即将到来
                   </span>

@@ -26,12 +26,12 @@ function parseBriefing(output: unknown): BriefingItem[] | null {
 function sourceColor(source: string): string {
   if (source.includes("Hacker")) return "border-orange-500/30 bg-orange-500/10 text-orange-400";
   if (source.includes("JavaScript")) return "border-amber-500/30 bg-amber-500/10 text-amber-400";
-  if (source.includes("CSS")) return "border-[rgba(41,121,255,0.3)] bg-[rgba(41,121,255,0.1)] text-[var(--color-neon-blue)]";
+  if (source.includes("CSS")) return "border-[rgba(var(--neon-blue-rgb),0.3)] bg-[rgba(var(--neon-blue-rgb),0.1)] text-[var(--color-neon-blue)]";
   if (source.includes("MIT") || source.includes("Technology"))
-    return "border-[rgba(255,0,144,0.3)] bg-[rgba(255,0,144,0.1)] text-[var(--color-neon-pink)]";
+    return "border-[rgba(var(--neon-pink-rgb),0.3)] bg-[rgba(var(--neon-pink-rgb),0.1)] text-[var(--color-neon-pink)]";
   if (source.includes("Batch") || source.includes("deeplearning"))
-    return "border-[rgba(176,64,255,0.3)] bg-[rgba(176,64,255,0.1)] text-[var(--color-neon-purple)]";
-  return "border-[rgba(0,229,255,0.2)] bg-[rgba(0,229,255,0.06)] text-muted-foreground";
+    return "border-[rgba(var(--neon-purple-rgb),0.3)] bg-[rgba(var(--neon-purple-rgb),0.1)] text-[var(--color-neon-purple)]";
+  return "border-[rgba(var(--neon-cyan-rgb),0.2)] bg-[rgba(var(--neon-cyan-rgb),0.06)] text-muted-foreground";
 }
 
 /**
@@ -60,10 +60,10 @@ export function BriefingCard({ output }: { output: unknown }) {
       {Object.entries(grouped).map(([source, items]) => (
         <div
           key={source}
-          className="overflow-hidden rounded-xl border border-[rgba(0,229,255,0.1)] bg-[rgba(10,22,40,0.5)] backdrop-blur-sm"
+          className="overflow-hidden rounded-xl border border-[rgba(var(--neon-cyan-rgb),0.1)] bg-[var(--th-card-inner-bg)] backdrop-blur-sm"
         >
           {/* 来源标签头部 */}
-          <div className="flex items-center gap-2 border-b border-[rgba(0,229,255,0.08)] px-4 py-2.5">
+          <div className="flex items-center gap-2 border-b border-[rgba(var(--neon-cyan-rgb),0.08)] px-4 py-2.5">
             <Rss className="h-3.5 w-3.5 text-[var(--color-neon-cyan)]" style={{ opacity: 0.6 }} />
             <span
               className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${sourceColor(source)}`}
@@ -72,9 +72,9 @@ export function BriefingCard({ output }: { output: unknown }) {
             </span>
           </div>
           {/* 文章列表 */}
-          <div className="divide-y divide-[rgba(0,229,255,0.06)]">
+          <div className="divide-y divide-[rgba(var(--neon-cyan-rgb),0.06)]">
             {items.map((item, i) => (
-              <div key={i} className="group px-4 py-3 transition-colors hover:bg-[rgba(0,229,255,0.02)]">
+              <div key={i} className="group px-4 py-3 transition-colors hover:bg-[rgba(var(--neon-cyan-rgb),0.02)]">
                 <div className="flex items-start justify-between gap-2">
                   <h4 className="text-sm font-medium leading-snug">
                     {item.title}
@@ -84,7 +84,7 @@ export function BriefingCard({ output }: { output: unknown }) {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-0.5 shrink-0 text-muted-foreground transition-all hover:text-[var(--color-neon-cyan)] hover:drop-shadow-[0_0_4px_rgba(0,229,255,0.4)]"
+                      className="mt-0.5 shrink-0 text-muted-foreground transition-all hover:text-[var(--color-neon-cyan)] hover:drop-shadow-[0_0_4px_rgba(var(--neon-cyan-rgb),0.4)]"
                     >
                       <ExternalLink className="h-3.5 w-3.5" />
                     </a>

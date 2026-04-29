@@ -38,17 +38,17 @@ export function TravelCard({ output }: { output: unknown }) {
   if (!data) return null;
 
   return (
-    <div className="my-3 overflow-hidden rounded-xl border border-[rgba(255,0,144,0.15)] bg-gradient-to-br from-[rgba(255,0,144,0.04)] to-[rgba(176,64,255,0.03)] shadow-[0_0_20px_rgba(255,0,144,0.04)]">
+    <div className="my-3 overflow-hidden rounded-xl border border-[rgba(var(--neon-pink-rgb),0.15)] bg-gradient-to-br from-[rgba(var(--neon-pink-rgb),0.04)] to-[rgba(var(--neon-purple-rgb),0.03)] shadow-[0_0_20px_rgba(var(--neon-pink-rgb),0.04)]">
       <div className="px-4 pt-4 pb-3">
         <div className="flex items-center gap-2">
-          <MapPin className="h-5 w-5 text-[var(--color-neon-pink)]" style={{ filter: "drop-shadow(0 0 6px rgba(255,0,144,0.4))" }} />
+          <MapPin className="h-5 w-5 text-[var(--color-neon-pink)]" style={{ filter: "drop-shadow(0 0 6px rgba(var(--neon-pink-rgb),0.4))" }} />
           <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-wider">{data.destination}</h3>
         </div>
         <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">旅行规划方案</p>
       </div>
 
       {/* 3 列核心参数 */}
-      <div className="grid grid-cols-3 gap-px border-t border-[rgba(255,0,144,0.1)] bg-[rgba(255,0,144,0.06)]">
+      <div className="grid grid-cols-3 gap-px border-t border-[rgba(var(--neon-pink-rgb),0.1)] bg-[rgba(var(--neon-pink-rgb),0.06)]">
         <InfoCell icon={Clock} label="行程" value={data.duration} />
         <InfoCell icon={Wallet} label="预算" value={data.budget} />
         <InfoCell
@@ -59,7 +59,7 @@ export function TravelCard({ output }: { output: unknown }) {
       </div>
 
       {data.startDate !== "灵活" && (
-        <div className="border-t border-[rgba(255,0,144,0.08)] px-4 py-2 font-mono text-xs text-muted-foreground">
+        <div className="border-t border-[rgba(var(--neon-pink-rgb),0.08)] px-4 py-2 font-mono text-xs text-muted-foreground">
           ◈ 出发日期: {data.startDate}
         </div>
       )}
@@ -78,7 +78,7 @@ function InfoCell({
   value: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-1 bg-[rgba(10,22,40,0.6)] px-3 py-3 backdrop-blur-sm">
+    <div className="flex flex-col items-center gap-1 bg-[var(--th-card-inner-bg)] px-3 py-3 backdrop-blur-sm">
       <Icon className="h-3.5 w-3.5 text-[var(--color-neon-pink)] opacity-50" />
       <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{label}</span>
       <span className="text-xs font-medium">{value}</span>

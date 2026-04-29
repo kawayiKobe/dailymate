@@ -35,8 +35,8 @@ export function ChatMessage({ message }: { message: UIMessage }) {
       <div
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
           isUser
-            ? "border border-[rgba(176,64,255,0.3)] bg-[rgba(176,64,255,0.1)] text-[var(--color-neon-purple)] shadow-[0_0_12px_rgba(176,64,255,0.15)]"
-            : "border border-[rgba(0,229,255,0.3)] bg-[rgba(0,229,255,0.08)] text-[var(--color-neon-cyan)] shadow-[0_0_12px_rgba(0,229,255,0.15)]"
+            ? "border border-[rgba(var(--neon-purple-rgb),0.3)] bg-[rgba(var(--neon-purple-rgb),0.1)] text-[var(--color-neon-purple)] shadow-[0_0_12px_rgba(var(--neon-purple-rgb),0.15)]"
+            : "border border-[rgba(var(--neon-cyan-rgb),0.3)] bg-[rgba(var(--neon-cyan-rgb),0.08)] text-[var(--color-neon-cyan)] shadow-[0_0_12px_rgba(var(--neon-cyan-rgb),0.15)]"
         }`}
       >
         {isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
@@ -46,8 +46,8 @@ export function ChatMessage({ message }: { message: UIMessage }) {
       <div
         className={`min-w-0 rounded-2xl px-4 py-3 ${
           isUser
-            ? "max-w-[80%] border border-[rgba(176,64,255,0.15)] bg-[rgba(176,64,255,0.06)] text-foreground"
-            : "max-w-[85%] border border-[rgba(0,229,255,0.08)] bg-[rgba(10,22,40,0.6)] text-foreground backdrop-blur-sm"
+            ? "max-w-[80%] border border-[rgba(var(--neon-purple-rgb),0.15)] bg-[rgba(var(--neon-purple-rgb),0.06)] text-foreground"
+            : "max-w-[85%] border border-[rgba(var(--neon-cyan-rgb),0.08)] bg-[var(--th-msg-ai-bg)] text-foreground backdrop-blur-sm"
         }`}
       >
         {/* 遍历消息的所有 part 进行渲染 */}

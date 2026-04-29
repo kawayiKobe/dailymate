@@ -27,14 +27,14 @@ export function Sidebar({
   onDelete,
 }: SidebarProps) {
   return (
-    <aside className="relative z-10 flex h-full w-64 shrink-0 flex-col border-r border-[rgba(0,229,255,0.1)] bg-[rgba(5,10,18,0.95)] backdrop-blur-xl">
+    <aside className="relative z-10 flex h-full w-64 shrink-0 flex-col border-r border-[rgba(var(--neon-cyan-rgb),0.1)] bg-[var(--th-sidebar-bg)] backdrop-blur-xl">
       {/* ── 顶部：品牌 + 新建按钮 ── */}
       <div className="flex items-center justify-between px-3 py-3">
         <div className="flex items-center gap-2.5">
           {/* Logo 图标，带脉冲光环动画 */}
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-[rgba(0,229,255,0.08)] ring-1 ring-[rgba(0,229,255,0.2)]">
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-[rgba(var(--neon-cyan-rgb),0.08)] ring-1 ring-[rgba(var(--neon-cyan-rgb),0.2)]">
             <Cpu className="h-4 w-4 text-[var(--color-neon-cyan)]" />
-            <div className="absolute inset-0 rounded-lg bg-[rgba(0,229,255,0.1)] pulse-ring" />
+            <div className="absolute inset-0 rounded-lg bg-[rgba(var(--neon-cyan-rgb),0.1)] pulse-ring" />
           </div>
           <span className="font-[family-name:var(--font-display)] text-sm font-bold tracking-[0.08em] uppercase glow-text">
             DailyMate
@@ -42,7 +42,7 @@ export function Sidebar({
         </div>
         <button
           onClick={onNewChat}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-all hover:bg-[rgba(0,229,255,0.08)] hover:text-[var(--color-neon-cyan)] hover:shadow-[0_0_12px_rgba(0,229,255,0.15)]"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-all hover:bg-[rgba(var(--neon-cyan-rgb),0.08)] hover:text-[var(--color-neon-cyan)] hover:shadow-[0_0_12px_rgba(var(--neon-cyan-rgb),0.15)]"
           title="新对话"
         >
           <MessageSquarePlus className="h-4 w-4" />
@@ -50,7 +50,7 @@ export function Sidebar({
       </div>
 
       {/* 渐变分割线 */}
-      <div className="mx-3 mb-2 h-px bg-gradient-to-r from-transparent via-[rgba(0,229,255,0.2)] to-transparent" />
+      <div className="mx-3 mb-2 h-px bg-gradient-to-r from-transparent via-[rgba(var(--neon-cyan-rgb),0.2)] to-transparent" />
 
       {/* ── 会话列表（可滚动） ── */}
       <div className="flex-1 overflow-y-auto px-2 pb-2">
@@ -66,8 +66,8 @@ export function Sidebar({
                 type="button"
                 className={`group flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-sm transition-all cursor-pointer ${
                   conv.id === activeId
-                    ? "bg-[rgba(0,229,255,0.08)] text-foreground border border-[rgba(0,229,255,0.15)] shadow-[0_0_12px_rgba(0,229,255,0.06)]"
-                    : "text-muted-foreground border border-transparent hover:bg-[rgba(0,229,255,0.04)] hover:text-foreground hover:border-[rgba(0,229,255,0.08)]"
+                    ? "bg-[rgba(var(--neon-cyan-rgb),0.08)] text-foreground border border-[rgba(var(--neon-cyan-rgb),0.15)] shadow-[0_0_12px_rgba(var(--neon-cyan-rgb),0.06)]"
+                    : "text-muted-foreground border border-transparent hover:bg-[rgba(var(--neon-cyan-rgb),0.04)] hover:text-foreground hover:border-[rgba(var(--neon-cyan-rgb),0.08)]"
                 }`}
                 onClick={() => onSelect(conv.id)}
               >
@@ -79,7 +79,7 @@ export function Sidebar({
                     e.stopPropagation();
                     onDelete(conv.id);
                   }}
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded opacity-0 transition-all hover:bg-[rgba(255,0,144,0.15)] hover:text-[var(--color-neon-pink)] group-hover:opacity-100"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded opacity-0 transition-all hover:bg-[rgba(var(--neon-pink-rgb),0.15)] hover:text-[var(--color-neon-pink)] group-hover:opacity-100"
                   title="删除对话"
                 >
                   <Trash2 className="h-3 w-3" />
@@ -91,9 +91,9 @@ export function Sidebar({
       </div>
 
       {/* ── 底部标识 ── */}
-      <div className="mx-3 h-px bg-gradient-to-r from-transparent via-[rgba(0,229,255,0.15)] to-transparent" />
+      <div className="mx-3 h-px bg-gradient-to-r from-transparent via-[rgba(var(--neon-cyan-rgb),0.15)] to-transparent" />
       <div className="px-3 py-2">
-        <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[rgba(0,229,255,0.3)]">
+        <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[rgba(var(--neon-cyan-rgb),0.3)]">
           ◈ Powered by LangGraph
         </span>
       </div>

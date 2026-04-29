@@ -118,14 +118,14 @@ export function ChatPanel({
             {isLoading &&
               messages.at(-1)?.role !== "assistant" && (
                 <div className="flex gap-3 animate-in fade-in-0 duration-300">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(0,229,255,0.3)] bg-[rgba(0,229,255,0.08)] shadow-[0_0_12px_rgba(0,229,255,0.15)]">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(var(--neon-cyan-rgb),0.3)] bg-[rgba(var(--neon-cyan-rgb),0.08)] shadow-[0_0_12px_rgba(var(--neon-cyan-rgb),0.15)]">
                     <span className="text-sm text-[var(--color-neon-cyan)]">⟐</span>
                   </div>
-                  <div className="rounded-2xl border border-[rgba(0,229,255,0.08)] bg-[rgba(10,22,40,0.6)] px-4 py-3 backdrop-blur-sm">
+                  <div className="rounded-2xl border border-[rgba(var(--neon-cyan-rgb),0.08)] bg-[var(--th-msg-ai-bg)] px-4 py-3 backdrop-blur-sm">
                     <div className="flex items-center gap-1.5">
-                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--color-neon-cyan)] shadow-[0_0_6px_rgba(0,229,255,0.5)] [animation-delay:0ms]" />
-                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--color-neon-blue)] shadow-[0_0_6px_rgba(41,121,255,0.5)] [animation-delay:150ms]" />
-                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--color-neon-purple)] shadow-[0_0_6px_rgba(176,64,255,0.5)] [animation-delay:300ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--color-neon-cyan)] shadow-[0_0_6px_rgba(var(--neon-cyan-rgb),0.5)] [animation-delay:0ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--color-neon-blue)] shadow-[0_0_6px_rgba(var(--neon-blue-rgb),0.5)] [animation-delay:150ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--color-neon-purple)] shadow-[0_0_6px_rgba(var(--neon-purple-rgb),0.5)] [animation-delay:300ms]" />
                     </div>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export function ChatPanel({
 
             {/* 错误提示 */}
             {error && (
-              <div className="flex items-start gap-2 rounded-xl border border-[rgba(255,0,144,0.2)] bg-[rgba(255,0,144,0.05)] px-4 py-3 text-sm text-[var(--color-neon-pink)] animate-in fade-in-0 duration-300">
+              <div className="flex items-start gap-2 rounded-xl border border-[rgba(var(--neon-pink-rgb),0.2)] bg-[rgba(var(--neon-pink-rgb),0.05)] px-4 py-3 text-sm text-[var(--color-neon-pink)] animate-in fade-in-0 duration-300">
                 <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
                 <div>
                   <p className="font-medium">请求出错了</p>
@@ -156,7 +156,7 @@ export function ChatPanel({
           onSend={() => handleSend()}
           onStop={stop}
         />
-        <p className="mt-2 text-center font-mono text-[10px] tracking-wider text-[rgba(0,229,255,0.25)]">
+        <p className="mt-2 text-center font-mono text-[10px] tracking-wider text-[rgba(var(--neon-cyan-rgb),0.25)]">
           DailyMate 可能会犯错，请核实重要信息。
         </p>
       </div>

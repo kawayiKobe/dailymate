@@ -38,13 +38,13 @@ const TOOL_CONFIG: Record<
     icon: Cloud,
     label: "查询天气",
     color: "text-[var(--color-neon-blue)]",
-    glow: "rgba(41,121,255,0.15)",
+    glow: "rgba(var(--neon-blue-rgb),0.15)",
   },
   web_search: {
     icon: Search,
     label: "搜索网页",
     color: "text-[var(--color-neon-cyan)]",
-    glow: "rgba(0,229,255,0.15)",
+    glow: "rgba(var(--neon-cyan-rgb),0.15)",
   },
   get_daily_briefing: {
     icon: Newspaper,
@@ -56,19 +56,19 @@ const TOOL_CONFIG: Record<
     icon: Calendar,
     label: "查询假期",
     color: "text-[var(--color-neon-purple)]",
-    glow: "rgba(176,64,255,0.15)",
+    glow: "rgba(var(--neon-purple-rgb),0.15)",
   },
   plan_travel: {
     icon: MapPin,
     label: "旅游规划",
     color: "text-[var(--color-neon-pink)]",
-    glow: "rgba(255,0,144,0.15)",
+    glow: "rgba(var(--neon-pink-rgb),0.15)",
   },
   get_preferences: {
     icon: UserCog,
     label: "读取偏好",
     color: "text-[var(--color-neon-cyan)]",
-    glow: "rgba(0,229,255,0.15)",
+    glow: "rgba(var(--neon-cyan-rgb),0.15)",
   },
   save_preferences: {
     icon: Save,
@@ -112,17 +112,17 @@ export function ToolStatus({ toolName, state, input, output }: ToolStatusProps) 
     icon: Search,
     label: toolName,
     color: "text-muted-foreground",
-    glow: "rgba(91,138,181,0.1)",
+    glow: "rgba(var(--neon-cyan-rgb),0.1)",
   };
   const Icon = config.icon;
   const isDone = state === "output-available";
   const inputSummary = formatInput(toolName, input);
 
   return (
-    <div className="my-2 overflow-hidden rounded-lg border border-[rgba(0,229,255,0.08)] bg-[rgba(5,10,18,0.6)] text-xs backdrop-blur-sm">
+    <div className="my-2 overflow-hidden rounded-lg border border-[rgba(var(--neon-cyan-rgb),0.08)] bg-[var(--th-card-inner-bg)] text-xs backdrop-blur-sm">
       <button
         type="button"
-        className="flex w-full items-center gap-2 px-3 py-2 transition-colors hover:bg-[rgba(0,229,255,0.03)]"
+        className="flex w-full items-center gap-2 px-3 py-2 transition-colors hover:bg-[rgba(var(--neon-cyan-rgb),0.03)]"
         onClick={() => isDone && output && setExpanded(!expanded)}
       >
         {/* 状态图标：加载中 → 旋转；已完成 → 勾号 */}
@@ -150,7 +150,7 @@ export function ToolStatus({ toolName, state, input, output }: ToolStatusProps) 
       </button>
       {/* 展开后显示工具原始输出（JSON），最多显示 1000 字符 */}
       {expanded && !!output && (
-        <div className="max-h-40 overflow-auto border-t border-[rgba(0,229,255,0.08)] px-3 py-2">
+        <div className="max-h-40 overflow-auto border-t border-[rgba(var(--neon-cyan-rgb),0.08)] px-3 py-2">
           <pre className="whitespace-pre-wrap break-all font-mono text-[10px] text-muted-foreground">
             {typeof output === "string"
               ? output.slice(0, 1000)

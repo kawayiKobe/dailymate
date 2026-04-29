@@ -15,32 +15,32 @@ const suggestions = [
     icon: Newspaper,
     label: "今日 AI 简报",
     prompt: "给我看看今天的 AI 简报",
-    border: "rgba(0, 229, 255, 0.2)",
-    glow: "rgba(0, 229, 255, 0.06)",
+    border: "rgba(var(--neon-cyan-rgb), 0.2)",
+    glow: "rgba(var(--neon-cyan-rgb), 0.06)",
     iconColor: "text-[var(--color-neon-cyan)]",
   },
   {
     icon: Cloud,
     label: "天气查询",
     prompt: "今天北京天气怎么样？",
-    border: "rgba(41, 121, 255, 0.2)",
-    glow: "rgba(41, 121, 255, 0.06)",
+    border: "rgba(var(--neon-blue-rgb), 0.2)",
+    glow: "rgba(var(--neon-blue-rgb), 0.06)",
     iconColor: "text-[var(--color-neon-blue)]",
   },
   {
     icon: Plane,
     label: "旅游规划",
     prompt: "帮我规划一个 5 天的京都旅行，预算 8000 元",
-    border: "rgba(176, 64, 255, 0.2)",
-    glow: "rgba(176, 64, 255, 0.06)",
+    border: "rgba(var(--neon-purple-rgb), 0.2)",
+    glow: "rgba(var(--neon-purple-rgb), 0.06)",
     iconColor: "text-[var(--color-neon-purple)]",
   },
   {
     icon: Calendar,
     label: "假期攻略",
     prompt: "2026 年有哪些假期可以拼假？",
-    border: "rgba(255, 0, 144, 0.2)",
-    glow: "rgba(255, 0, 144, 0.06)",
+    border: "rgba(var(--neon-pink-rgb), 0.2)",
+    glow: "rgba(var(--neon-pink-rgb), 0.06)",
     iconColor: "text-[var(--color-neon-pink)]",
   },
 ];
@@ -56,9 +56,9 @@ export function WelcomeScreen({ onSuggestionClick }: WelcomeScreenProps) {
     <div className="flex flex-1 flex-col items-center justify-center px-4 animate-in fade-in-0 duration-700">
       {/* ── Logo 区域：图标 + 多层光晕 ── */}
       <div className="relative mb-6">
-        <div className="absolute -inset-6 rounded-full bg-[rgba(0,229,255,0.06)] blur-2xl" />
-        <div className="absolute -inset-3 rounded-full bg-[rgba(0,229,255,0.04)] blur-xl pulse-ring" />
-        <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl border border-[rgba(0,229,255,0.2)] bg-[rgba(0,229,255,0.06)] shadow-[0_0_30px_rgba(0,229,255,0.1)]">
+        <div className="absolute -inset-6 rounded-full bg-[rgba(var(--neon-cyan-rgb),0.06)] blur-2xl" />
+        <div className="absolute -inset-3 rounded-full bg-[rgba(var(--neon-cyan-rgb),0.04)] blur-xl pulse-ring" />
+        <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl border border-[rgba(var(--neon-cyan-rgb),0.2)] bg-[rgba(var(--neon-cyan-rgb),0.06)] shadow-[0_0_30px_rgba(var(--neon-cyan-rgb),0.1)]">
           <Cpu className="h-9 w-9 text-[var(--color-neon-cyan)]" />
         </div>
       </div>
@@ -72,9 +72,9 @@ export function WelcomeScreen({ onSuggestionClick }: WelcomeScreenProps) {
 
       {/* 装饰性分割线：左右渐变 + 中间菱形 */}
       <div className="mb-8 flex items-center gap-3">
-        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[rgba(0,229,255,0.3)]" />
-        <div className="h-1.5 w-1.5 rotate-45 border border-[rgba(0,229,255,0.4)] bg-[rgba(0,229,255,0.15)]" />
-        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[rgba(0,229,255,0.3)]" />
+        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[rgba(var(--neon-cyan-rgb),0.3)]" />
+        <div className="h-1.5 w-1.5 rotate-45 border border-[rgba(var(--neon-cyan-rgb),0.4)] bg-[rgba(var(--neon-cyan-rgb),0.15)]" />
+        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[rgba(var(--neon-cyan-rgb),0.3)]" />
       </div>
 
       {/* ── 快捷建议卡片 2×2 网格 ── */}

@@ -49,9 +49,9 @@ export function ChatInput({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[rgba(0,229,255,0.15)] bg-[rgba(10,22,40,0.8)] p-2 shadow-[0_0_20px_rgba(0,229,255,0.06)] backdrop-blur-md transition-all focus-within:border-[rgba(0,229,255,0.35)] focus-within:shadow-[0_0_30px_rgba(0,229,255,0.1)]">
+    <div className="relative overflow-hidden rounded-2xl border border-[rgba(var(--neon-cyan-rgb),0.15)] bg-[var(--th-input-bg)] p-2 shadow-[0_0_20px_rgba(var(--neon-cyan-rgb),0.06)] backdrop-blur-md transition-all focus-within:border-[rgba(var(--neon-cyan-rgb),0.35)] focus-within:shadow-[0_0_30px_rgba(var(--neon-cyan-rgb),0.1)]">
       {/* 顶部装饰性发光线 */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(0,229,255,0.3)] to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(var(--neon-cyan-rgb),0.3)] to-transparent" />
 
       <div className="flex items-end gap-2">
         <textarea
@@ -61,14 +61,14 @@ export function ChatInput({
           onKeyDown={handleKeyDown}
           placeholder="输入指令... 试试「今天有什么 AI 新闻？」"
           rows={1}
-          className="max-h-[200px] min-h-[40px] flex-1 resize-none bg-transparent px-3 py-2 text-sm text-foreground outline-none placeholder:text-[rgba(91,138,181,0.6)]"
+          className="max-h-[200px] min-h-[40px] flex-1 resize-none bg-transparent px-3 py-2 text-sm text-foreground outline-none placeholder:text-[var(--th-placeholder-fg)]"
         />
         {isLoading ? (
           /* 停止生成按钮 */
           <button
             type="button"
             onClick={onStop}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[rgba(255,0,144,0.2)] bg-[rgba(255,0,144,0.08)] text-[var(--color-neon-pink)] transition-all hover:bg-[rgba(255,0,144,0.15)] hover:shadow-[0_0_15px_rgba(255,0,144,0.15)]"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[rgba(var(--neon-pink-rgb),0.2)] bg-[rgba(var(--neon-pink-rgb),0.08)] text-[var(--color-neon-pink)] transition-all hover:bg-[rgba(var(--neon-pink-rgb),0.15)] hover:shadow-[0_0_15px_rgba(var(--neon-pink-rgb),0.15)]"
           >
             <Square className="h-3 w-3" />
           </button>
@@ -78,7 +78,7 @@ export function ChatInput({
             type="button"
             disabled={!input.trim()}
             onClick={onSend}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[rgba(0,229,255,0.3)] bg-[rgba(0,229,255,0.1)] text-[var(--color-neon-cyan)] transition-all hover:bg-[rgba(0,229,255,0.2)] hover:shadow-[0_0_15px_rgba(0,229,255,0.2)] disabled:opacity-30 disabled:hover:shadow-none"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[rgba(var(--neon-cyan-rgb),0.3)] bg-[rgba(var(--neon-cyan-rgb),0.1)] text-[var(--color-neon-cyan)] transition-all hover:bg-[rgba(var(--neon-cyan-rgb),0.2)] hover:shadow-[0_0_15px_rgba(var(--neon-cyan-rgb),0.2)] disabled:opacity-30 disabled:hover:shadow-none"
           >
             <ArrowUp className="h-4 w-4" />
           </button>
